@@ -7,7 +7,7 @@ module.exports = (production = false) => {
           path: path.resolve(__dirname, '../../dist/ticket'),
           filename: 'static/[name]/index.[chunkhash].js',
           chunkFilename: 'static/[name].[id].[chunkhash].js',
-          publicPath: 'http://8.129.90.25:5555/',
+          publicPath: 'http://8.129.90.25:5555/ticket/',
           library: 'managePermission',
           libraryTarget: 'umd'
         }
