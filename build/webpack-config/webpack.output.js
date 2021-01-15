@@ -8,7 +8,7 @@ module.exports = (production = false) => {
           path: path.resolve(__dirname, '../../dist'),
           filename: 'static/[name]/index.[chunkhash].js',
           chunkFilename: 'static/[name].[id].[chunkhash].js',
-          publicPath: '/static/',
+          publicPath: '/',
           library: `${name}-[name]`,
           libraryTarget: 'umd',
           jsonpFunction: `webpackJsonp_${name}`,
