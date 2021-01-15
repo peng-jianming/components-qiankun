@@ -88,7 +88,7 @@ const baseConfig = {
       clear: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'ticket/index.html',
       template: path.resolve(__dirname, '../template/index.html'),
       minify: isProduction
         ? {
