@@ -66,7 +66,9 @@ const eslintLoaderConfigure = () => {
 };
 
 const baseConfig = {
-  entry: path.resolve(__dirname, '../src/entry.js'),
+  entry: {
+    ticket: path.resolve(__dirname, '../src/entry.js')
+  },
   module: {
     rules: [
       imageLoaderConfigure(),
@@ -86,6 +88,7 @@ const baseConfig = {
       clear: true
     }),
     new HtmlWebpackPlugin({
+      filename: 'ticket/index.html',
       template: path.resolve(__dirname, '../template/index.html'),
       minify: isProduction
         ? {

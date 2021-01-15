@@ -45,7 +45,9 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div class="page">
+    <div id="app"></div>
+  </div>
   <!--开始注入webpack生成的js-->
   <% htmlWebpackPlugin.files.js.forEach(function(js) { %>
   <script type="text/javascript" src="<%= js %>"></script>

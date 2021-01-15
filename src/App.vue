@@ -4,10 +4,10 @@
       创建工单
     </div>
     <div>
-      <router-link to="/create/one" tag="span">
+      <router-link to="/one" tag="span">
         <el-button type="primary">One-Component</el-button></router-link
       >
-      <router-link to="/create/two" tag="span"
+      <router-link to="/two" tag="span"
         ><el-button type="primary">Two-Component</el-button></router-link
       >
     </div>

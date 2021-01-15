@@ -1,28 +1,30 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
 import One from 'src/components/One';
-Vue.use(VueRouter);
 
-export default new VueRouter({
-  routes: [
-    {
-      path: '/create/one',
-      component: One,
-      children: [
-        {
-          path: 'one',
-          component: () => import('src/components/OneOne')
-        },
-        {
-          path: 'two',
-          component: () => import('src/components/TwoTwo')
-        }
-      ]
-    },
-    {
-      path: '/create/two',
-      component: () =>
-        import(/* webpackChunkName: "ticket/two" */ 'src/components/Two')
-    }
-  ]
-});
+export default [
+  {
+    path: '/one',
+    component: One,
+    children: [
+      {
+        path: 'one',
+        component: () =>
+          import(
+            /* webpackChunkName: "ticket/OneOne" */ './components/OneOne.vue'
+          )
+      },
+      {
+        path: 'two',
+        component: () =>
+          import(
+            /* webpackChunkName: "ticket/TwoTwo" */ './components/TwoTwo.vue'
+          )
+      }
+    ]
+  },
+  {
+    path: '/two',
+    name: 'twoC',
+    component: () =>
+      import(/* webpackChunkName: "ticket/Two" */ './components/Two.vue')
+  }
+];

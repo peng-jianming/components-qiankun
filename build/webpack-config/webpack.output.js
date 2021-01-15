@@ -1,23 +1,28 @@
 const path = require('path');
+const { name } = require('../../package');
 
 module.exports = (production = false) => {
   return {
     output: production
       ? {
-          path: path.resolve(__dirname, '../../dist/ticket'),
+          path: path.resolve(__dirname, '../../dist'),
           filename: 'static/[name]/index.[chunkhash].js',
           chunkFilename: 'static/[name].[id].[chunkhash].js',
-          publicPath: 'http://8.129.90.25:5555/ticket/',
-          library: 'managePermission',
-          libraryTarget: 'umd'
+          publicPath: '/static/',
+          library: `${name}-[name]`,
+          libraryTarget: 'umd',
+          jsonpFunction: `webpackJsonp_${name}`,
+          globalObject: 'window'
         }
       : {
-          path: path.resolve(__dirname, '../../dist/ticket'),
+          path: path.resolve(__dirname, '../../dist'),
           filename: '[name].js',
           chunkFilename: '[name].js',
-          publicPath: 'http://127.0.0.1:3000/',
-          library: 'managePermission',
-          libraryTarget: 'umd'
+          publicPath: '/',
+          library: `${name}-[name]`,
+          libraryTarget: 'umd',
+          jsonpFunction: `webpackJsonp_${name}`,
+          globalObject: 'window'
         }
   };
 };
