@@ -1,6 +1,6 @@
 import { Field } from 'src/dependencies/fields/Field';
-import TicketTypeEnums from 'src/dependencies/enums/ticket/create/TicketType';
-import FeedbackEnums from 'src/dependencies/enums/ticket/create/Feedback';
+import TicketTypeEnums from 'src/dependencies/enums/TicketType';
+import FeedbackEnums from 'src/dependencies/enums/Feedback';
 
 export const ticketType = new Field({
   prop: 'ticket_type',

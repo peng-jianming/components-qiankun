@@ -66,9 +66,7 @@ const eslintLoaderConfigure = () => {
 };
 
 const baseConfig = {
-  entry: {
-    ticket: path.resolve(__dirname, '../src/entry.js')
-  },
+  entry: path.resolve(__dirname, '../src/page/entry.js'),
   module: {
     rules: [
       imageLoaderConfigure(),
@@ -88,7 +86,7 @@ const baseConfig = {
       clear: true
     }),
     new HtmlWebpackPlugin({
-      filename: 'ticket/index.html',
+      filename: 'index.html',
       template: path.resolve(__dirname, '../template/index.html'),
       minify: isProduction
         ? {
@@ -97,14 +95,7 @@ const baseConfig = {
           }
         : false,
       cache: true,
-      configs: require(path.resolve(__dirname, '../template/page.js')),
-      plugins: {
-        assetsRetry: fs.readFileSync(require.resolve('assets-retry')),
-        assetsRetryConfig: require(path.resolve(
-          __dirname,
-          '../template/page.js'
-        )).assetsRetryConfig
-      }
+      configs: require(path.resolve(__dirname, '../template/page.js'))
     })
   ],
   resolve: {
