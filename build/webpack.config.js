@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const devConfig = require('./webpack-config/webpack.dev');
 const prodConfig = require('./webpack-config/webpack.prod');
 const cssConfig = require('./webpack-config/webpack.css');
@@ -106,7 +105,6 @@ const baseConfig = {
   },
   externals: {
     vue: 'Vue',
-    'element-ui': 'ELEMENT',
     'vue-router': 'VueRouter'
   },
   stats: {

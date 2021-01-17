@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <create-form-component />
     <el-divider></el-divider>
     <qiankun-test-router-component />
