@@ -5,9 +5,11 @@ import {
   phoneNumber,
   feedbackChannel,
   problemHeppenTime,
-  description
+  description,
+  copyToPeople
 } from 'src/dependencies/fields/create';
 import RichTextEidtor from 'src/modules/component/rich-text-editor';
+import UserChooserComponent from 'src/page/components/UserChooser';
 const DATE_FORMAT = 'yyyy-MM-dd HH:mm:ss';
 
 export const configFields = new Fields([
@@ -18,14 +20,14 @@ export const configFields = new Fields([
   problemHeppenTime
     .clone()
     .setCustomize('valueFormat', DATE_FORMAT)
-    .setDefaultValue([
-      '2021-01-28 23:59:59',
-      '2020-12-03 00:00:00',
-      ['2021-01-28 23:59:59', '2020-12-03 00:00:00']
-    ])
     .setFormItemWidth('600px'),
   description
     .clone()
     .setEditComponent(RichTextEidtor)
+    .setFormItemWidth('600px'),
+  copyToPeople
+    .clone()
     .setFormItemWidth('600px')
+    .setEditComponent(UserChooserComponent)
+    .setCustomize('singleton', false)
 ]);

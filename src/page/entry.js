@@ -3,10 +3,12 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import routes from './router';
 import ElementUI from 'element-ui';
+import Http from 'src/modules/http';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
+Vue.use(Http);
 
 Vue.config.productionTip = false;
 
@@ -20,9 +22,11 @@ const render = (props = {}) => {
     mode: 'history',
     routes
   });
+  console.log();
   instance = new Vue({
     el: '#app',
     router,
+    provide: props,
     render: h => h(App)
   });
 };
@@ -34,7 +38,9 @@ if (window.__POWERED_BY_QIANKUN__) {
   render();
 }
 
-export const bootstrap = async () => {};
+export const bootstrap = async () => {
+  console.log('bootstrap');
+};
 
 export const mount = async props => {
   render(props);

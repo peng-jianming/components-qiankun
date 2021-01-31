@@ -1,6 +1,6 @@
 import { Field } from 'src/dependencies/fields/Field';
 import TicketTypeEnums from 'src/dependencies/enums/TicketType';
-import FeedbackEnums from 'src/dependencies/enums/Feedback';
+import FeedbackEnums, { Feedback } from 'src/dependencies/enums/Feedback';
 
 export const ticketType = new Field({
   prop: 'ticket_type',
@@ -26,7 +26,7 @@ export const feedbackChannel = new Field({
   prop: 'feedback_channel',
   label: '反馈渠道',
   type: 'radio',
-  enums: FeedbackEnums,
+  enums: FeedbackEnums.filter(({ id }) => id !== Feedback.OFFICIAL),
   required: true
 });
 
@@ -42,4 +42,9 @@ export const description = new Field({
   prop: 'description',
   label: '问题描述',
   required: true
+});
+
+export const copyToPeople = new Field({
+  prop: 'copy_to_people',
+  label: '抄送人'
 });
