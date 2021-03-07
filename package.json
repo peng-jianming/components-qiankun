@@ -63,10 +63,6 @@
     "webpack-merge": "^5.4.1"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "element-ui": "^2.15.0",
-    "lodash": "^4.17.20",
-    "moment": "^2.29.1",
     "vue-quill-editor": "^3.0.6"
   }
 }

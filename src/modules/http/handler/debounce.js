@@ -53,7 +53,6 @@ export default {
           remove(url, method, params, data);
         }, DELAY);
       } else {
-        console.log(config, '8888');
         source.cancel('cancel request because of debounce');
         return Object.assign(config, {
           cancelToken: source.token
@@ -61,5 +60,13 @@ export default {
       }
     }
     return config;
+  },
+  responseReject(error) {
+    if (axios.isCancel(error)) {
+      console.log('Request canceled:', error.message);
+      return error;
+    } else {
+      return Promise.reject(error);
+    }
   }
 };
